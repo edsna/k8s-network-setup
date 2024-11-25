@@ -1,0 +1,28 @@
+*.log
+*.txt
+.DS_Store
+network_config.txt
+# Security-sensitive files
+**/.*_history
+**/.env
+**/.env.*
+**/credentials.*
+**/*.pem
+**/*.key
+**/*.crt
+**/*.config
+**/kubeconfig
+**/*.secret.*
+# Network configuration files
+**/network_config.txt
+**/ip_addresses.txt
+**/mac_addresses.txt
+# Logs and temp files
+**/*.log
+**/*.tmp
+**/*.temp
+# OS files
+.DS_Store
+.Spotlight-V100
+.Trashes
+Thumbs.db
