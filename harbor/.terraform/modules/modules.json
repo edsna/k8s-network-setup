@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"harbor","Source":"./modules/harbor","Dir":"modules/harbor"},{"Key":"harbor_namespace","Source":"./modules/namespace","Dir":"modules/namespace"}]}

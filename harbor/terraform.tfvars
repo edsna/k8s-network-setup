@@ -1,0 +1,9 @@
+namespace_name        = "harbor"
+environment           = "production"
+harbor_admin_password = "AdminCred"  # Change this
+harbor_domain         = "harbor.homelab.local"
+harbor_http_nodeport  = "30002"
+harbor_https_nodeport = "30003"
+harbor_tls_enabled    = false
+create_ingress        = true
+storage_class         = "local-hostpath"  # Use your cluster's storage class
