@@ -59,6 +59,40 @@ resource "helm_release" "ingress_nginx" {
   timeout = 600 # 10 minutes timeout
 }
 
+# Create Ingress for Prometheus
+resource "kubernetes_ingress_v1" "prometheus" {
+  metadata {
+    name      = "prometheus"
+    namespace = "monitoring"
+    annotations = {
+      "kubernetes.io/ingress.class" = "nginx"
+      "nginx.ingress.kubernetes.io/ssl-redirect" = "false"
+    }
+  }
+
+  spec {
+    rule {
+      host = "prometheus.homelab.local"
+      http {
+        path {
+          path      = "/"
+          path_type = "Prefix"
+          backend {
+            service {
+              name = "kube-prometheus-stack-prometheus"
+              port {
+                number = 9090
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  depends_on = [helm_release.ingress_nginx]
+}
+
 # Create Ingress for Grafana
 resource "kubernetes_ingress_v1" "grafana" {
   metadata {
